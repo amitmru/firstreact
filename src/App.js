@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React Componate
+          Learn React Componate (Home Work)
         </a>
       </header>
     </div>
