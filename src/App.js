@@ -1,10 +1,14 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import Country from './Countaiers/Country';
+import City from './Countaiers/City';
+import Counter from './Countaiers/Counter';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -17,7 +21,10 @@ function App() {
         >
           Learn React Componate (Home Work)
         </a>
-      </header>
+      </header> */}
+      <Country />
+      <City />
+      <Counter />
     </div>
   );
 }
