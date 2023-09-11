@@ -5,6 +5,7 @@ class City extends Component {
         return (
             <div>
                 <h1>City Componets</h1>
+                <h3>City Name : {this.props.country === 'INDIA' ? 'SURAT' : 'LONDAN'}</h3>
             </div>
         )
     }

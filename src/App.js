@@ -1,8 +1,9 @@
 // import logo from './logo.svg';
 import './App.css';
 import Country from './Countaiers/Country';
-import City from './Countaiers/City';
 import Counter from './Countaiers/Counter';
+import Countryfun from './Countaiers/Countryfun';
+import Counterfun from './Countaiers/Counterfun';
 
 
 function App() {
@@ -22,9 +23,11 @@ function App() {
           Learn React Componate (Home Work)
         </a>
       </header> */}
-      <Country />
-      <City />
-      <Counter />
+      {/* <Country />
+      <br />
+      <Counter /> */}
+      <Countryfun />
+      <Counterfun />
     </div>
   );
 }
