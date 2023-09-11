@@ -4,6 +4,7 @@ import Country from './Countaiers/Country';
 import Counter from './Countaiers/Counter';
 import Countryfun from './Countaiers/Countryfun';
 import Counterfun from './Countaiers/Counterfun';
+import Medicines from './Countaiers/Medicines';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <Counter /> */}
       <Countryfun />
       <Counterfun />
+      <Medicines />
     </div>
   );
 }

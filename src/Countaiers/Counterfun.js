@@ -5,14 +5,12 @@ function Counterfun(props) {
     const [counter, setCounter] = useState(0);
 
     const valueAdd = () => {
-        console.log('+++');
         if (counter < 5) {
             setCounter(counter + 1)
         }
     }
 
     const valueDecr = () => {
-        console.log('---');
         if (counter > 0) {
             setCounter(counter - 1)
         }
