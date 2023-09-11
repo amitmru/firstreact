@@ -19,7 +19,7 @@ class Country extends Component {
     render() {
         return (
             <div>
-               <h1>Country Compontes</h1> 
+               <h1>Country Compontes {this.props.name}</h1> 
                 <h2>Our Country Is : {this.state.countryName}</h2>
 
                 <button onClick={this.changeCountry}>Change Country</button>

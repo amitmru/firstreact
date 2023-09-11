@@ -3,6 +3,7 @@ import './App.css';
 import Country from './Countaiers/Country';
 import City from './Countaiers/City';
 import Counter from './Countaiers/Counter';
+import Name from './Countaiers/Name';
 
 
 function App() {
@@ -22,9 +23,10 @@ function App() {
           Learn React Componate (Home Work)
         </a>
       </header> */}
-      <Country />
+      <Country name="BHARAT"/>
       <City />
       <Counter />
+      <Name />
     </div>
   );
 }
