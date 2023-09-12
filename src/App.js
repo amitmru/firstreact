@@ -7,6 +7,8 @@ import Counterfun from './Countaiers/Counterfun';
 import Medicines from './Countaiers/Medicines';
 import Mounting from './Countaiers/Mounting';
 import Updeting from './Countaiers/Updeting';
+import Timer from './Countaiers/Timer';
+import Timerfun from './Countaiers/Timerfun';
 
 
 function App() {
@@ -26,8 +28,8 @@ function App() {
           Learn React Componate (Home Work)
         </a>
       </header> */}
-      <Country />
-      <Updeting />
+      {/* <Country />
+      <Updeting /> */}
       {/* <Mounting /> */}
       <br />
       {/* <Counter /> */}
@@ -35,6 +37,8 @@ function App() {
       <Counterfun />
       <br />
       <Medicines /> */}
+      {/* <Timer /> */}
+      <Timerfun />
     </div>
   );
 }
