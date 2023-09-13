@@ -78,7 +78,7 @@ function Medicines(props) {
   
   return (
     <>
-     {Lodding ? (<span>Lodding...</span>) : 
+     {Lodding ? (<h1>Lodding...</h1>) : 
      (<table border="1">
      <thead>
        <tr>
