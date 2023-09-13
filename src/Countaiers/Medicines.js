@@ -60,25 +60,26 @@ const medicinesData = [
 function Medicines(props) {
 
   // const [medicines, setMedicines] = useState(medicinesData)
-  const [Lodding, setLodding] = useState(true);
 
-  // const tick = () => {
-  //   setMedicines(medicinesData);
-  // }
+  // 1...
+  const [Loading, setLoading] = useState(true);
 
+  // 3...  // 5...
   useEffect(() => {
     setTimeout(() => {
-      setLodding(false);
+      setLoading(false);
     },3000);    
 
+    // 6...
     return () => {
       
     }
-  }, [Lodding])
+  }, [Loading])
   
+  //2 ...  // 4...
   return (
     <>
-     {Lodding ? (<span class="loader">Lodding...</span>) : 
+     {Loading ? (<h1>Loading...</h1>) : 
      (<table border="1">
      <thead>
        <tr>

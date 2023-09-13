@@ -37,3 +37,8 @@
     transform: rotate(360deg);
   }
 }
+.QuoteData {
+  border: 1px solid black;
+  padding: 10px;
+  width: 50%;
+}
