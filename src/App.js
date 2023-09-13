@@ -34,11 +34,11 @@ function App() {
       <br />
       {/* <Counter /> */}
       {/* <Countryfun />
-      <Counterfun />
+      <Counterfun /> */}
       <br />
-      <Medicines /> */}
+      <Medicines />
       {/* <Timer /> */}
-      <Timerfun />
+      {/* <Timerfun /> */}
     </div>
   );
 }

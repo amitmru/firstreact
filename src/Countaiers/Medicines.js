@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 const medicinesData = [
   {
     "id": 1,
@@ -59,35 +59,54 @@ const medicinesData = [
 ]
 function Medicines(props) {
 
-  const [medicines, setMedicines] = useState(medicinesData)
+  // const [medicines, setMedicines] = useState(medicinesData)
+  const [Lodding, setLodding] = useState(true);
 
+  // const tick = () => {
+  //   setMedicines(medicinesData);
+  // }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLodding(false);
+    },3000);    
+
+    return () => {
+      
+    }
+  }, [Lodding])
+  
   return (
-    <table border="1">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>NAME</th>
-          <th>PRICE</th>
-          <th>EXPIRY</th>
-          <th>DESCRIPTION</th>
-        </tr>
-      </thead>
-      {
-        medicines.map((v) => {
-          return (
-            <tbody>
-              <tr>
-                <td>{v.id}</td>
-                <td>{v.name}</td>
-                <td>{v.price}</td>
-                <td>{v.expiry}</td>
-                <td>{v.desc}</td>
-              </tr>
-            </tbody>
-          )
-        })
-      }
-    </table>
+    <>
+     {Lodding ? (<span class="loader">Lodding...</span>) : 
+     (<table border="1">
+     <thead>
+       <tr>
+         <th>ID</th>
+         <th>NAME</th>
+         <th>PRICE</th>
+         <th>EXPIRY</th>
+         <th>DESCRIPTION</th>
+       </tr>
+     </thead>
+     {
+       medicinesData.map((v) => {
+         return (
+           <tbody>
+             <tr>
+               <td>{v.id}</td>
+               <td>{v.name}</td>
+               <td>{v.price}</td>
+               <td>{v.expiry}</td>
+               <td>{v.desc}</td>
+             </tr>
+           </tbody>
+         )
+       })
+     }
+   </table>)}
+    
+    </>
   )
 }
 
