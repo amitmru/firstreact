@@ -53,10 +53,8 @@
   justify-content: space-between;
   width: 100%;
   flex-wrap: wrap;
-  gap: 30px;
-}
-.col-4 {
-  width: 30%;  
+  /* gap: 30px; */
+  row-gap: 30px;
 }
 
 .image_Desc {
@@ -68,7 +66,7 @@
 }
 
 .imageBox img {
-  width: 330px;
+  width: 260px;
   height: 250px;
   background-size: cover;
   background-position: center;

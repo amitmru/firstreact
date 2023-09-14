@@ -11,6 +11,7 @@ import Timer from './Countaiers/Timer';
 import Timerfun from './Countaiers/Timerfun';
 import Quote from './Countaiers/Quote';
 import Searching from './Countaiers/Searching';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {

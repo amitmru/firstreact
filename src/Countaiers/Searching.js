@@ -5,7 +5,8 @@ function Searching(props) {
 
     const [isLoading, setIsLoading] = useState(true)
     const [qData, setQdata] = useState([]);
-    const [searchItem, setSearchItem] = useState();
+    const [searchItem, setSearchItem] = useState('');
+    const [filterData, setFilterData] = useState([]);
 
 
     const getRequest = async () => {
@@ -24,40 +25,32 @@ function Searching(props) {
         getRequest();
     }, []);
 
+    const findData = (val) => {
+        setSearchItem(val);
+        let searchData = qData.filter((v) => v.category.toLowerCase().includes(val.toLowerCase()) || 
+            v.price.toString().includes(val.toString()) ||
+            v.rating.rate.toString().includes(toString()));
+
+        setFilterData(searchData);
+
+        // console.log(setFilterData);
+    }
+
+    const finalData = setFilterData.length > 0 ? filterData : qData;
+
     return (
         <div className='counatiner'>
             {
                 isLoading ? (<h1>Loading...</h1>) :
 
                     <>
-                        <input name="text" placeholder='Search...' className='searchBox' onChange={((event) => setSearchItem(event.target.value))} />
+                        <input name="text" placeholder='Search...' className='searchBox' onChange={((event) => findData(event.target.value))} />
 
                         <h1>Products</h1>
-                        {/* <div className='row'>
-                            {qData.filter((v) => {
-                                if (searchItem === " ") {
-                                    return v;
-                                } else if (v.category.toLowerCase().includes(searchItem.toLowerCase())) {
-                                    return v;
-                                }
-                            }).map((value) =>
-                                <div className='col-4'>
-                                    <div className='image_Desc'>
-                                        <div className='imageBox'>
-                                            <img src={value.image} />
-                                        </div>
-                                        <div className='descBox'>
-                                            <h2>Title : {value.category}</h2>
-                                            <h2> Price : {value.price}</h2>
-                                            <h2> Ratting : {value.rating.rate}</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
-                        </div> */}
+                      
                         <div className='row'>
-                        {qData.map((value) => 
-                            <div className='col-4'>
+                        {finalData.map((value) => 
+                            <div className='col-md-4'>
                                 <div className='image_Desc'>
                                     <div className='imageBox'>
                                         <img src={value.image} />
