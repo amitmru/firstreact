@@ -9,6 +9,8 @@ import Mounting from './Countaiers/Mounting';
 import Updeting from './Countaiers/Updeting';
 import Timer from './Countaiers/Timer';
 import Timerfun from './Countaiers/Timerfun';
+import Quote from './Countaiers/Quote';
+import Searching from './Countaiers/Searching';
 
 
 function App() {
@@ -36,9 +38,11 @@ function App() {
       {/* <Countryfun />
       <Counterfun /> */}
       <br />
-      <Medicines />
+      {/* <Medicines /> */}
       {/* <Timer /> */}
       {/* <Timerfun /> */}
+      {/* <Quote /> */}
+      <Searching />
     </div>
   );
 }
