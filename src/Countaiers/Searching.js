@@ -27,11 +27,11 @@ function Searching(props) {
     const findData = (val) => {
         setSearchItem(val);
 
-        let searchData = qData.filter((v) => v.category.toLowerCase().includes(val.toLowerCase()) ||
+        let SearchData = qData.filter((v) => v.category.toLowerCase().includes(val.toLowerCase()) ||
             v.price.toString().includes(val.toString()) ||
             v.rating.rate.toString().includes(val.toString()));
 
-        setFilterData(searchData);
+        setFilterData(SearchData);
     }
 
     const FinalData = setFilterData.length > 0 ? filterData : qData;

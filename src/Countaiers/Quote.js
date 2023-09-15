@@ -41,7 +41,6 @@ function Quote(props) {
             {
                isLoading ?  <h1>Loading...</h1> : 
                <div  className='QuoteData'>
-                {/* {console.log(qData)} */}
                <p>{qData[index].text}</p>
                <h4>--- {qData[index].author}</h4>
                <button 

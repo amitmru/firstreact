@@ -12,6 +12,7 @@ import Timerfun from './Countaiers/Timerfun';
 import Quote from './Countaiers/Quote';
 import Searching from './Countaiers/Searching';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Quote_Seach from './Countaiers/Quote_Seach';
 
 
 function App() {
@@ -43,7 +44,8 @@ function App() {
       {/* <Timer /> */}
       {/* <Timerfun /> */}
       {/* <Quote /> */}
-      <Searching />
+      {/* <Searching /> */}
+      <Quote_Seach />
     </div>
   );
 }
