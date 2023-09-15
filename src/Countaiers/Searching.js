@@ -17,6 +17,7 @@ function Searching(props) {
         setQdata(Data)
 
         setIsLoading(false);
+
     }
 
     useEffect(() => {
@@ -25,19 +26,15 @@ function Searching(props) {
 
     const findData = (val) => {
         setSearchItem(val);
+
         let searchData = qData.filter((v) => v.category.toLowerCase().includes(val.toLowerCase()) ||
             v.price.toString().includes(val.toString()) ||
             v.rating.rate.toString().includes(val.toString()));
 
-            setQdata(searchData);
-
+        setFilterData(searchData);
     }
 
-    const finalData = setFilterData.length > 0 ? filterData : qData;
-
-    console.log(qData);
-    console.log(filterData);
-
+    const FinalData = setFilterData.length > 0 ? filterData : qData;
     return (
         <div className='counatiner'>
             {
@@ -49,7 +46,7 @@ function Searching(props) {
                         <h1>Products</h1>
 
                         <div className='row'>
-                            {qData.map((value) => {
+                            {FinalData.map((value) => {
                                 return (
                                     <div className='col-md-4'>
                                         <div className='image_Desc'>
