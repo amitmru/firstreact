@@ -13,6 +13,9 @@ import Quote from './Countaiers/Quote';
 import Searching from './Countaiers/Searching';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Quote_Seach from './Countaiers/Quote_Seach';
+import Product from './Countaiers/Product';
+import { Navbar } from 'reactstrap';
+import Example from './Countaiers/Example';
 
 
 function App() {
@@ -44,8 +47,13 @@ function App() {
       {/* <Timer /> */}
       {/* <Timerfun /> */}
       {/* <Quote /> */}
-      {/* <Searching /> */}
-      <Quote_Seach />
+      {/* <Searching />
+      <br />
+      <br />
+      <br />
+      <Quote_Seach /> */}
+      <Product />
+      {/* <Example /> */}
     </div>
   );
 }

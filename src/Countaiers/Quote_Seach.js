@@ -34,7 +34,7 @@ function Quote_Seach(props) {
         // console.log(setFilterData);
     }
 
-    let FinalData = setFilterData.length > 0 ? filterData : qData;
+    let FinalData = filterData.length > 0 ? filterData : qData;
 
     return (
         <div className='counatiner'>

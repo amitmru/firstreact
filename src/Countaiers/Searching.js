@@ -34,7 +34,7 @@ function Searching(props) {
         setFilterData(SearchData);
     }
 
-    const FinalData = setFilterData.length > 0 ? filterData : qData;
+    const FinalData = filterData.length > 0 ? filterData : qData;
     return (
         <div className='counatiner'>
             {
@@ -42,9 +42,13 @@ function Searching(props) {
 
                     <>
                         <input name="text" placeholder='Search...' className='searchBox' onChange={((event) => findData(event.target.value))} />
-
+                        <br />
+                        <br />
+                        <hr />
                         <h1>Products</h1>
-
+                        <hr />
+                        <br />
+                        <br />
                         <div className='row'>
                             {FinalData.map((value) => {
                                 return (
