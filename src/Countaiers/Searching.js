@@ -14,9 +14,7 @@ function Searching(props) {
 
         const Data = await responce.json();
 
-        console.log(Data);
-
-        setQdata(Data);
+        setQdata(Data)
 
         setIsLoading(false);
     }
@@ -27,16 +25,18 @@ function Searching(props) {
 
     const findData = (val) => {
         setSearchItem(val);
-        let searchData = qData.filter((v) => v.category.toLowerCase().includes(val.toLowerCase()) || 
+        let searchData = qData.filter((v) => v.category.toLowerCase().includes(val.toLowerCase()) ||
             v.price.toString().includes(val.toString()) ||
-            v.rating.rate.toString().includes(toString()));
+            v.rating.rate.toString().includes(val.toString()));
 
-        setFilterData(searchData);
+            setQdata(searchData);
 
-        // console.log(setFilterData);
     }
 
     const finalData = setFilterData.length > 0 ? filterData : qData;
+
+    console.log(qData);
+    console.log(filterData);
 
     return (
         <div className='counatiner'>
@@ -47,23 +47,26 @@ function Searching(props) {
                         <input name="text" placeholder='Search...' className='searchBox' onChange={((event) => findData(event.target.value))} />
 
                         <h1>Products</h1>
-                      
+
                         <div className='row'>
-                        {finalData.map((value) => 
-                            <div className='col-md-4'>
-                                <div className='image_Desc'>
-                                    <div className='imageBox'>
-                                        <img src={value.image} />
+                            {qData.map((value) => {
+                                return (
+                                    <div className='col-md-4'>
+                                        <div className='image_Desc'>
+                                            <div className='imageBox'>
+                                                <img src={value.image} />
+                                            </div>
+                                            <div className='descBox'>
+                                                <h2>Title : {value.category}</h2>
+                                                <h2> Price : {value.price}</h2>
+                                                <h2> Ratting : {value.rating.rate}</h2>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className='descBox'>
-                                        <h2>Title : {value.category}</h2>
-                                        <h2> Price : {value.price}</h2>
-                                        <h2> Ratting : {value.rating.rate}</h2>
-                                    </div>
-                                </div>
-                            </div>
-                        )}
-                        </div> 
+                                )
+                            })}
+
+                        </div>
                     </>
             }
         </div>
