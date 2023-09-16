@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Logo from '../logo.png';
 import {
     Collapse,
     Navbar,
@@ -87,14 +88,7 @@ function Product(props) {
                                 dark
                             >
                                 <NavbarBrand href="/">
-                                    <img
-                                        alt="logo"
-                                        src="../public/logo.png"
-                                        style={{
-                                            height: 40,
-                                            width: 40
-                                        }}
-                                    />
+                                    <img src={Logo}/>
                                     <input name="text" placeholder='Search...' className='searchBox' />
                                 </NavbarBrand>
                             </Navbar>
