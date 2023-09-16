@@ -14,6 +14,7 @@ import {
     DropdownItem,
     NavbarText,
     Button,
+    Dropdown,
 } from 'reactstrap';
 
 function Product(props) {
@@ -22,13 +23,17 @@ function Product(props) {
     const [products, setProducts] = useState([]);
     const [searchItem, setSearchItem] = useState('');
     const [filterData, setFilterData] = useState([]);
+    const [filterPrice, setFilterPrice] = useState([]);
+    const [Price, setPrice] = useState([]);
+
+
 
     const getRequest = async () => {
         const responce = await fetch('https://dummyjson.com/products');
 
         const Data = await responce.json();
 
-        console.log(Data.products);
+        // console.log(Data.products);
 
         setProducts(Data.products)
 
@@ -45,8 +50,26 @@ function Product(props) {
         setSearchItem(val);
 
         let SearchData = products.filter((v) => v.category.toLowerCase().includes(val.toLowerCase()));
- 
+
         setFilterData(SearchData);
+    }
+
+    const changeVlaue = (value) => {
+        // console.log(value);
+
+        let PData;
+
+        if (value === 'ascending') {
+            PData = [...products].sort((a,b) => a.title > b.title ? 1 : -1);
+        } else if (value === 'descending') {
+            PData = [...products].sort((a,b) => a.title > b.title ? -1 : 1);
+        } else if (value === 'high-price') {
+            PData = [...products].sort((a,b) => b.price - a.price)
+        } else if (value === 'low-price') {
+            PData = [...products].sort((a,b) => a.price - b.price)
+        }
+
+        setFilterData(PData);
     }
 
 
@@ -90,35 +113,47 @@ function Product(props) {
                                 </div>
                                 <div className='col-md-2'>
                                     <Button outline onClick={(() => findData('laptops'))}>
-                                    laptops
+                                        laptops
                                     </Button>
                                 </div>
                                 <div className='col-md-2'>
                                     <Button outline onClick={(() => findData('fragrances'))}>
-                                    fragrances
+                                        fragrances
                                     </Button>
                                 </div>
                                 <div className='col-md-2'>
                                     <Button outline onClick={(() => findData('skincare'))}>
-                                    skincare
+                                        skincare
                                     </Button>
                                 </div>
                                 <div className='col-md-2'>
                                     <Button outline onClick={(() => findData('groceries'))}>
-                                    groceries
+                                        groceries
                                     </Button>
                                 </div>
                                 <div className='col-md-2'>
                                     <Button outline onClick={(() => findData('home'))}>
-                                    home-decoration
+                                        home-decoration
                                     </Button>
                                 </div>
                                 <div className='col-md-2'>
                                     <Button outline onClick={(() => findData(''))}>
-                                    All Products
+                                        All Products
                                     </Button>
                                 </div>
                             </div>
+
+
+                            <div className="sorting__widget text-end">
+                                <select className="w-50" onChange={((e) => changeVlaue(e.target.value))}>
+                                    <option value=''>Default</option>
+                                    <option value="ascending">Alphabetically, A-Z</option>
+                                    <option value="descending">Alphabetically, Z-A</option>
+                                    <option value="high-price">High Price</option>
+                                    <option value="low-price">Low Price</option>
+                                </select>
+                            </div>
+
 
                             <div className='row'>
                                 {FinalData.map((value) => {

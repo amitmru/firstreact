@@ -16,6 +16,7 @@ import Quote_Seach from './Countaiers/Quote_Seach';
 import Product from './Countaiers/Product';
 import { Navbar } from 'reactstrap';
 import Example from './Countaiers/Example';
+import Select from './Countaiers/Select';
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
       <Quote_Seach /> */}
       <Product />
       {/* <Example /> */}
+      {/* <Select /> */}
     </div>
   );
 }
