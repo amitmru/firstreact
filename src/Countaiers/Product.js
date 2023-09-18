@@ -24,12 +24,27 @@ function Product(props) {
     const [products, setProducts] = useState([]);
     const [searchItem, setSearchItem] = useState('');
     const [filterData, setFilterData] = useState([]);
-    const [active, setActive] = useState(false);
+    const [isSort,setIsSort] = useState('')
+    const [searchData, setSearchData] = useState('')
+    const [active, setActive] = useState(null);
+    const [category,setCategory] = useState([]);
+
+    console.log(category);
 
     const getRequest = async () => {
         const responce = await fetch('https://dummyjson.com/products');
 
         const Data = await responce.json();
+
+        let uniqData = [];
+
+        Data.products.map((v) => {
+            if (!uniqData.includes(v.category)) {
+                uniqData.push(v.category)
+            }
+        })
+
+        setCategory(uniqData);
 
         setProducts(Data.products)
 
@@ -41,37 +56,47 @@ function Product(props) {
         getRequest();
     }, [])
 
-    const findData = (val,e) => {
+    // const findData = (val) => {
 
-        setActive(!active);
+    //     setActive(val);
         
-        setSearchItem(val);
+    //     setSearchItem(val);
 
-        let SearchData = products.filter((v) => v.category.toLowerCase().includes(val.toLowerCase()));
+    //     let SearchData = products.filter((v) => v.category.toLowerCase().includes(val.toLowerCase()));
 
-        setFilterData(SearchData);
+    //     setFilterData(SearchData);
+    // }
+
+   
+    const findSeachSortData = () => {
+
+        let SearchData = products.filter((v) => v.category.toLowerCase().includes(searchData.toLowerCase()) ||
+            v.price.toString().includes(searchData.toString()) ||
+            v.rating.toString().includes(searchData.toString()));
+
+            SearchData = products.filter((v) => {
+                if (category !== '') {
+                    v.category === category
+                }
+            })
+
+            SearchData = SearchData.sort((a,b) => {
+                if (isSort === 'lp') {
+                    return a.price-b.price;
+                } else if (isSort === 'hp') {
+                    return b.price-a.price;
+                } else if (isSort === 'az') {
+                    return a.title.localeCompare(b.title)
+                } else if (isSort === 'za') {
+                    return b.title.localeCompare(a.title)
+                }
+            })
+
+        return SearchData;
     }
 
-    const changeVlaue = (value) => {
-        // console.log(value);
 
-        let PData;
-
-        if (value === 'ascending') {
-            PData = [...products].sort((a, b) => a.title > b.title ? 1 : -1);
-        } else if (value === 'descending') {
-            PData = [...products].sort((a, b) => a.title > b.title ? -1 : 1);
-        } else if (value === 'high-price') {
-            PData = [...products].sort((a, b) => b.price - a.price)
-        } else if (value === 'low-price') {
-            PData = [...products].sort((a, b) => a.price - b.price)
-        }
-
-        setFilterData(PData);
-    }
-
-
-    const FinalData = filterData.length > 0 ? filterData : products;
+    const FinalData = findSeachSortData();
 
     return (
         <div className=''>
@@ -95,7 +120,7 @@ function Product(props) {
                                     </ul>
                                 </nav>
                                 <div>
-                                    <input name="text" placeholder='Search...' className='searchBox' />
+                                    <input name="text" placeholder='Search...' className='searchBox' onChange={((e) => setSearchData(e.target.value))} />
                                 </div>
                                 
                                 
@@ -108,52 +133,63 @@ function Product(props) {
 
                             <h1 className='heding'>Online Shop</h1>
 
-                            <div className='row button_gap'>
+                            {/* <div className='row button_gap'>
                                 <div className='col-md-2'>
-                                    <Button outline onClick={((e) => findData('smartphones'))} style={{ backgroundColor: active ? "green" : "white" }}>
+                                    <Button outline onClick={((e) => findData('smartphones'))} style={{ backgroundColor: active === 'smartphones' ? "black" : "white" }}>
                                         smartphones
                                     </Button>
                                 </div>
                                 <div className='col-md-2'>
-                                    <Button outline onClick={((e) => findData('laptops'))} style={{ backgroundColor: active ? "green" : "white" }}>
+                                    <Button outline onClick={((e) => findData('laptops'))} style={{ backgroundColor: active === 'laptops' ? "black" : "white" }}>
                                         laptops
                                     </Button>
                                 </div>
                                 <div className='col-md-2'>
-                                    <Button outline onClick={((e) => findData('fragrances'))} style={{ backgroundColor: active ? "green" : "white" }}>
+                                    <Button outline onClick={((e) => findData('fragrances'))} style={{ backgroundColor: active === 'fragrances' ? "black" : "white" }}>
                                         fragrances
                                     </Button>
                                 </div>
                                 <div className='col-md-2'>
-                                    <Button outline onClick={((e) => findData('skincare'))} style={{ backgroundColor: active ? "green" : "white" }}>
+                                    <Button outline onClick={((e) => findData('skincare'))} style={{ backgroundColor: active === 'skincare' ? "black" : "white" }}>
                                         skincare
                                     </Button>
                                 </div>
                                 <div className='col-md-2'>
-                                    <Button outline onClick={((e) => findData('groceries'))} style={{ backgroundColor: active ? "green" : "white" }}>
+                                    <Button outline onClick={((e) => findData('groceries'))} style={{ backgroundColor: active === 'groceries' ? "black" : "white" }}>
                                         groceries
                                     </Button>
                                 </div>
                                 <div className='col-md-2'>
-                                    <Button outline onClick={((e) => findData('home'))} style={{ backgroundColor: active ? "green" : "white" }}>
+                                    <Button outline onClick={((e) => findData('home'))} style={{ backgroundColor: active === 'home'? "black" : "white" }}>
                                         home-decoration
                                     </Button>
                                 </div>
                                 <div className='col-md-12'>
-                                    <Button outline onClick={((e) => findData(''))} style={{ backgroundColor: active ? "green" : "white" }}>
+                                    <Button outline onClick={((e) => findData(''))} style={{ backgroundColor: active === '' ? "black" : "white" }}>
                                         All Products
                                     </Button>
                                 </div>
+                            </div> */}
+
+                            <div className='row button_gap'>
+                                <div>
+                                 {
+                                    category.map((v) => {
+                                        return (
+                                            <Button onClick={(() => setCategory)}>{v}</Button>
+                                        )
+                                    })
+                                 }
+                                </div>
                             </div>
 
-
                             <div className="sorting__widget">
-                                <select className="w-50 selectBox" onChange={((e) => changeVlaue(e.target.value))}>
+                                <select className="w-50 selectBox" onChange={((e) => setIsSort(e.target.value))}>
                                     <option value=''>All Products</option>
-                                    <option value="ascending">Alphabetically, A-Z</option>
-                                    <option value="descending">Alphabetically, Z-A</option>
-                                    <option value="high-price">High Price</option>
-                                    <option value="low-price">Low Price</option>
+                                    <option value="az">Alphabetically, A-Z</option>
+                                    <option value="za">Alphabetically, Z-A</option>
+                                    <option value="hp">High Price</option>
+                                    <option value="lp">Low Price</option>
                                 </select>
                             </div>
 
