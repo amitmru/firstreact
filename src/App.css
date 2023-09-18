@@ -86,8 +86,58 @@ h1 {
 
 .heding {
   margin: 3rem 0;
+  font-size: 100px;
+  color: green;
+  text-shadow: 3px 2px 3px rgba(202, 232, 9, 0.6);
 }
 
 .button_gap {
   margin: 3rem 0;
+}
+.headerLogo {
+  border-radius: 50%;
+  /* border: 2px solid black; */
+}
+.headerLogo > img {
+  width: 120px;
+  border-radius: 10px;
+  background: transparent;
+}
+.navbar_nav {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.body {
+  /* background-color: #f1f1f1; */
+}
+.list {
+  list-style: none;
+}
+
+.list li {
+  display: inline-block;
+  margin-right: 60px;
+}
+
+.list li a {
+  color: green;
+  text-decoration: none;
+  font-size: 35px;
+  padding: 10px 15px;
+}
+
+.list li a:hover {
+  background-color: green;
+  color: yellow;
+  border-radius: 20px;
+}
+
+.sorting__widget {
+  margin-bottom: 50px;
+}
+.selectBox {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 25px;
 }
