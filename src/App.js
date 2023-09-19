@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Country from './Countaiers/Country';
 import Counter from './Countaiers/Counter';
 import Countryfun from './Countaiers/Countryfun';
@@ -17,47 +18,60 @@ import Product from './Countaiers/Product';
 import { Navbar } from 'reactstrap';
 import Example from './Countaiers/Example';
 import Select from './Countaiers/Select';
+import RouterReactDom from './Countaiers/RouterReactDom';
+import Home from './Countaiers/Home';
+import About from './Countaiers/About';
+import Contect from './Countaiers/Contect';
 
 
 function App() {
-  return (
-    <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React Componate (Home Work)
-        </a>
-      </header> */}
-      {/* <Country />
-      <Updeting /> */}
-      {/* <Mounting /> */}
-      <br />
-      {/* <Counter /> */}
-      {/* <Countryfun />
-      <Counterfun /> */}
-      <br />
-      {/* <Medicines /> */}
-      {/* <Timer /> */}
-      {/* <Timerfun /> */}
-      {/* <Quote /> */}
-      {/* <Searching />
-      <br />
-      <br />
-      <br />
-      <Quote_Seach /> */}
-      <Product />
-      {/* <Example /> */}
-      {/* <Select /> */}
-    </div>
-  );
+  // return (
+  //   <div className="App">
+  //     {/* <header className="App-header">
+  //       <img src={logo} className="App-logo" alt="logo" />
+  //       <p>
+  //         Edit <code>src/App.js</code> and save to reload.
+  //       </p>
+  //       <a
+  //         className="App-link"
+  //         href="https://reactjs.org"
+  //         target="_blank"
+  //         rel="noopener noreferrer"
+  //       >
+  //         Learn React Componate (Home Work)
+  //       </a>
+  //     </header> */}
+  //     {/* <Country />
+  //     <Updeting /> */}
+  //     {/* <Mounting /> */}
+  //     <br />
+  //     {/* <Counter /> */}
+  //     {/* <Countryfun />
+  //     <Counterfun /> */}
+  //     <br />
+  //     {/* <Medicines /> */}
+  //     {/* <Timer /> */}
+  //     {/* <Timerfun /> */}
+  //     {/* <Quote /> */}
+  //     {/* <Searching />
+  //     <br />
+  //     <br />
+  //     <br />
+  //     <Quote_Seach /> */}
+  //     {/* <Product /> */}
+  //     {/* <Example /> */}
+  //     {/* <Select /> */}
+  //     {/* <RouterReactDom /> */}
+  //   </div>
+  // );
+  return <BrowserRouter>
+    <Routes>
+      <Route path='/Home' element={<Home />}/>
+      <Route path='/About' element={<About />}/>
+      <Route path='/Contect' element={<Contect />}/>
+    </Routes>
+  </BrowserRouter>;
 }
+
 
 export default App;
