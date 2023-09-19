@@ -26,10 +26,10 @@ function Product(props) {
     const [filterData, setFilterData] = useState([]);
     const [isSort,setIsSort] = useState('')
     const [searchData, setSearchData] = useState('')
-    const [active, setActive] = useState(null);
+    const [active, setActive] = useState('');
     const [category,setCategory] = useState([]);
+    const [selectcat, setSelectCat] = useState('');
 
-    console.log(category);
 
     const getRequest = async () => {
         const responce = await fetch('https://dummyjson.com/products');
@@ -56,29 +56,20 @@ function Product(props) {
         getRequest();
     }, [])
 
-    // const findData = (val) => {
+    const findSeachSortData = (e) => {
 
-    //     setActive(val);
-        
-    //     setSearchItem(val);
-
-    //     let SearchData = products.filter((v) => v.category.toLowerCase().includes(val.toLowerCase()));
-
-    //     setFilterData(SearchData);
-    // }
-
-   
-    const findSeachSortData = () => {
+        console.log(e);
 
         let SearchData = products.filter((v) => v.category.toLowerCase().includes(searchData.toLowerCase()) ||
             v.price.toString().includes(searchData.toString()) ||
             v.rating.toString().includes(searchData.toString()));
 
-            SearchData = products.filter((v) => {
-                if (category !== '') {
-                    v.category === category
-                }
-            })
+    
+            if (selectcat !== '') {
+                SearchData = SearchData.filter((v) => v.category === selectcat)
+            }
+
+            setActive(!active);
 
             SearchData = SearchData.sort((a,b) => {
                 if (isSort === 'lp') {
@@ -171,12 +162,12 @@ function Product(props) {
                                 </div>
                             </div> */}
 
-                            <div className='row button_gap'>
+                            <div className='row-gap'>
                                 <div>
                                  {
                                     category.map((v) => {
                                         return (
-                                            <Button onClick={(() => setCategory)}>{v}</Button>
+                                            <button onClick={(() => setSelectCat(v))} style={{backgroundColor: active === v ? "black" : "white"}} className='catBut'>{v}</button>
                                         )
                                     })
                                  }

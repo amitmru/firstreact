@@ -141,3 +141,12 @@ h1 {
   border-radius: 10px;
   font-size: 25px;
 }
+.row-gap {
+  margin-bottom: 30px;
+}
+
+.catBut {
+  background: transparent;
+  margin-right: 3rem;
+  border-radius: 5px;
+}
