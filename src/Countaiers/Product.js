@@ -56,9 +56,7 @@ function Product(props) {
         getRequest();
     }, [])
 
-    const findSeachSortData = (e) => {
-
-        console.log(e);
+    const findSeachSortData = () => {
 
         let SearchData = products.filter((v) => v.category.toLowerCase().includes(searchData.toLowerCase()) ||
             v.price.toString().includes(searchData.toString()) ||

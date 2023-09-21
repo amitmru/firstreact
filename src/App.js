@@ -25,49 +25,47 @@ import Contect from './Countaiers/Contect';
 
 
 function App() {
-  <div className="App">
-    <Product />
-  </div>
-}
-
-
-export default App;
-
-{/* <div className="App">
-    return (
-    {/* <header className="App-header">
+  return (
+    <div className="App">
+      {/* <header className="App-header">
          <img src={logo} className="App-logo" alt="logo" />
          <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-         <a
-           className="App-link"
+        <a
+          className="App-link"
            href="https://reactjs.org"
-          target="_blank"
-           rel="noopener noreferrer"
+         target="_blank"
+          rel="noopener noreferrer"
         >
-          Learn React Componate (Home Work)
-        </a>
+           Learn React Componate (Home Work)
+         </a>
        </header> */}
-    {/* <Country />
-     <Updeting /> */}
-    {/* <Mounting /> */}
-    // <br />
-    {/* <Counter /> */}
-    /* <Countryfun />*/
-    //  <Counterfun /> 
-    // <br />
-    {/* <Medicines /> */}
-    {/* <Timer /> */}
-    {/* <Timerfun /> */}
-    {/* <Quote /> */}
-    {/* <Searching />
-       <br />
-       <br />
-       <br />
-       <Quote_Seach /> */}
-    {/* <Product /> */}
-    {/* <Example /> */}
-    {/* <Select /> */}
-    {/* <RouterReactDom /> */}
-    // </div> */}
+      {/* <Country />
+       <Updeting /> */}
+      {/* <Mounting /> */}
+      <br />
+      {/* <Counter /> */}
+      {/* <Countryfun />
+       <Counterfun /> */}
+      <br />
+      {/* <Medicines /> */}
+      {/* <Timer /> */}
+      {/* <Timerfun /> */}
+      {/* <Quote /> */}
+      {/* <Searching /> */}
+      {/* <br />
+      <br />
+      <br /> */}
+      {/* <Quote_Seach /> */}
+      <Product />
+      {/* <Example /> */}
+      {/* <Select /> */}
+      {/* <RouterReactDom /> */}
+    </div>
+  );
+
+}
+
+
+export default App;
