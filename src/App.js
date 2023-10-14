@@ -2,7 +2,7 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Country from './Countaiers/Country';
-import Counter from './Countaiers/Counter';
+import Counter from './Countaiers/Counter/Counter';
 import Countryfun from './Countaiers/Countryfun';
 import Counterfun from './Countaiers/Counterfun';
 import Medicines from './Countaiers/Medicines';
@@ -22,47 +22,21 @@ import RouterReactDom from './Countaiers/RouterReactDom';
 import Home from './Countaiers/Home';
 import About from './Countaiers/About';
 import Contect from './Countaiers/Contect';
+import { configureStore } from './Redux/store';
+import { Provider } from 'react-redux';
 
 
 function App() {
+
+  let store = configureStore();
+
   return (
-    <div className="App">
-      {/* <header className="App-header">
-         <img src={logo} className="App-logo" alt="logo" />
-         <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-           href="https://reactjs.org"
-         target="_blank"
-          rel="noopener noreferrer"
-        >
-           Learn React Componate (Home Work)
-         </a>
-       </header> */}
-      {/* <Country />
-       <Updeting /> */}
-      {/* <Mounting /> */}
-      <br />
-      {/* <Counter /> */}
-      {/* <Countryfun />
-       <Counterfun /> */}
-      <br />
-      {/* <Medicines /> */}
-      {/* <Timer /> */}
-      {/* <Timerfun /> */}
-      {/* <Quote /> */}
-      {/* <Searching /> */}
-      {/* <br />
-      <br />
-      <br /> */}
-      {/* <Quote_Seach /> */}
-      <Product />
-      {/* <Example /> */}
-      {/* <Select /> */}
-      {/* <RouterReactDom /> */}
-    </div>
+    // <div className="App">
+      <Provider store={store}>
+        <Counter />
+      </Provider>
+    // </div>
+
   );
 
 }
