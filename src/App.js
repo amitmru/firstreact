@@ -19,11 +19,12 @@ import { Navbar } from 'reactstrap';
 import Example from './Countaiers/Example';
 import Select from './Countaiers/Select';
 import RouterReactDom from './Countaiers/RouterReactDom';
-import Home from './Countaiers/Home';
 import About from './Countaiers/About';
 import Contect from './Countaiers/Contect';
 import { configureStore } from './Redux/store';
 import { Provider } from 'react-redux';
+import Home from './Countaiers/Home/Home';
+import Cart from './Countaiers/Cart/Cart';
 
 
 function App() {
@@ -32,9 +33,13 @@ function App() {
 
   return (
     // <div className="App">
-      <Provider store={store}>
-        <Counter />
-      </Provider>
+    <Provider store={store}>
+      {/* <Counter /> */}
+      <Home />
+      {/* <Routes> */}
+        {/* <Route exact path='/Cart' element={<Cart />} /> */}
+      {/* </Routes> */}
+    </Provider>
     // </div>
 
   );
