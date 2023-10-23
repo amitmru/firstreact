@@ -25,6 +25,7 @@ import { configureStore } from './Redux/store';
 import { Provider } from 'react-redux';
 import Home from './Countaiers/Home/Home';
 import Cart from './Countaiers/Cart/Cart';
+import UserRoute from './Routes/UserRoute';
 
 
 function App() {
@@ -32,16 +33,12 @@ function App() {
   let store = configureStore();
 
   return (
-    // <div className="App">
+   
     <Provider store={store}>
-      {/* <Counter /> */}
-      <Home />
-      {/* <Routes> */}
-        {/* <Route exact path='/Cart' element={<Cart />} /> */}
-      {/* </Routes> */}
+      <Routes>
+        <Route path='/*' element={<UserRoute />} />
+      </Routes>
     </Provider>
-    // </div>
-
   );
 
 }
