@@ -18,6 +18,8 @@ function Data(props) {
     const hadleAddCart = (id) => {
         dispatch(cartAdd(id))
     }
+
+    
     
     return (
         <div className='conatiner'>

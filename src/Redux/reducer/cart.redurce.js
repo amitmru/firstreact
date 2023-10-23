@@ -1,4 +1,4 @@
-import { ADD_CART, DEC_CART, INC_CART } from "../actionType";
+import { ADD_CART, DEC_CART, INC_CART, REMOVE_CART } from "../actionType";
 
 const initialState = {
   isLoading: false,
@@ -41,18 +41,24 @@ export const cartRedurcer = (state = initialState, action) => {
         error: null
       }
 
-      case DEC_CART:
-        let indexDec = state.cart.findIndex((v) => v.id === action.payload)
+    case DEC_CART:
+      let indexDec = state.cart.findIndex((v) => v.id === action.payload)
 
-            if (state.cart[indexDec].qty > 1) {
-                state.cart[indexDec].qty--;
-            }
-        
-            return {
-                isLoading: false,
-                cart: state.cart,
-                error: null
-            }
+      if (state.cart[indexDec].qty > 1) {
+        state.cart[indexDec].qty--;
+      }
+
+      return {
+        isLoading: false,
+        cart: state.cart,
+        error: null
+      }
+    case REMOVE_CART:
+      return {
+        isLoading: false,
+        cart:state.cart.filter((cart) => cart.id !== action.payload),
+        error: null
+      }
     default:
       return state
   }

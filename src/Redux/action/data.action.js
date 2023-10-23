@@ -13,3 +13,7 @@ export const getData = () => (dispatch) => {
         console.log(error);
     }
 }
+
+export const addData = (id) => (dispatch) => {
+    
+}

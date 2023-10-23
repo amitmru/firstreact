@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { decrementHadle, incrementHadle } from '../../Redux/action/cart.action';
+import { decrementHadle, incrementHadle, removeCart } from '../../Redux/action/cart.action';
 
 function Cart(props) {
 
@@ -29,8 +29,11 @@ function Cart(props) {
     }
 
     const hadleReomve = (id) => {
-
+        dispatch(removeCart(id))
     }
+
+    const cartTotalQty = cartData.reduce((acc, data) => acc + data.qty, 0);
+    const cartTotalAmount = cartData.reduce((acc, data) => acc + data.price * data.qty, 0);
     return (
         <div>
             <div className="row justify-content-center m-0">
@@ -43,9 +46,11 @@ function Cart(props) {
                             <table className="table cart-table mb-0">
                                 <thead>
                                     <tr>
+                                    <th>Product</th>
                                         <th>Name</th>
                                         <th>Price</th>
                                         <th>Qty</th>
+                                        <th className="text-right"><span id="amount" className="amount">Total Amount</span></th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -54,8 +59,11 @@ function Cart(props) {
                                         cartData.map((value, index) => {
                                             return (
                                                 <tr>
+                                                    <td><div className="product-img"><img alt="" /></div></td>
                                                     <td><div className="product-name"><p>{value.name}</p></div></td>
                                                     <td>{value.price}</td>
+                                                    
+                                                    <td className="text-right">${value.price * value.qty.toFixed(0)}</td>
                                                     <td>
                                                         <div className="prdct-qty-container">
                                                             {
@@ -84,14 +92,14 @@ function Cart(props) {
                                         })
                                     }
                                 </tbody>
-                                {/* <tfoot>
+                                <tfoot>
                                     <tr>
                                         <th>&nbsp;</th>
                                         <th colSpan="3">&nbsp;</th>
-                                        <th>Items in Cart<span className="ml-2 mr-2">:</span><span className="text-danger"></span></th>
-                                        <th className="text-right">Total Price<span className="ml-2 mr-2">:</span><span className="text-danger">$</span></th>
+                                        <th>Items in Cart<span className="ml-2 mr-2">:</span><span className="text-danger"> {cartTotalQty}</span></th>
+                                        <th className="text-right">Total Price<span className="ml-2 mr-2">: {cartTotalAmount} </span><span className="text-danger"></span></th>
                                     </tr>
-                                </tfoot> */}
+                                </tfoot>
                             </table>
                         </div>
                     </div>

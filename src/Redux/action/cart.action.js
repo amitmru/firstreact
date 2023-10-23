@@ -1,4 +1,4 @@
-import { ADD_CART, DEC_CART, INC_CART } from "../actionType"
+import { ADD_CART, DEC_CART, INC_CART, REMOVE_CART } from "../actionType"
 
 export const cartAdd = (id) => (dispatch) => {
     dispatch({
@@ -17,6 +17,13 @@ export const incrementHadle = (id) => (dispatch) => {
 export const decrementHadle = (id) => (dispatch) => {
     dispatch({
         type: DEC_CART,
+        payload: id
+    })
+}
+
+export const removeCart = (id) => (dispatch) => {
+    dispatch({
+        type: REMOVE_CART,
         payload: id
     })
 }
